@@ -37,7 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'auth_user'
+    'auth_user',
+    'rest_framework'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -110,3 +111,5 @@ try:
     from local_settings import *
 except:
     pass
+
+AUTH_USER_MODEL = 'auth_user.PoolUser'
