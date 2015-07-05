@@ -1,5 +1,11 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 
-from auth_user.models import PoolUser
+from .models import PoolUser
 
-admin.site.register(PoolUser)
+class PoolUserAdmin(UserAdmin):
+    fieldsets = UserAdmin.fieldsets + ((None, {
+        'fields':  ('is_subscribed',)
+    }),)
+
+admin.site.register(PoolUser, PoolUserAdmin)
